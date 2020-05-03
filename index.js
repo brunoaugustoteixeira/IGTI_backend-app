@@ -1,21 +1,40 @@
-const request = require('request');
+const request = require('./request')
 const express = require('express');
 
-function getNames()
+const app = express();
+var result = "";
+
+async function sendRequest () {
+    let { body, response } = await request.get('https://randomuser.me/api/?results=5')
+
+    if (response.statusCode !== 200) {
+        return  console.log(response.statusCode + " " + response.statusMessage)
+    }
+    success(response, body)
+}
+
+function success (response,  body)
 {
-    request('https://randomuser.me/api/?results=5', { json: true }, (err, res, body) => {
-    if (err) { return console.log(err); }
-    return body;
+    body.results.forEach(element => {
+        result += '<li>' + element.name.first + '</li>';
     });
 }
 
-const app = express();
+app.get('/', async (req, res) => {
 
-app.get('/', (req, res) => res.send ( getNames().forEach(element => {
-        element.name.first;
-        console.log(element.name.first );
-})
-));
+    await sendRequest();
+
+    html = '<html><body>';
+    html += '<br>';
+    html += '<h1>Lista de Nomes</h1>';
+    html += '<ul>';
+    html += result;
+    html += '</ul></body></html>';
+    
+    res.send ( html)
+
+    result = "";
+});
 
 app.listen(process.env.PORT || 3000);
 
