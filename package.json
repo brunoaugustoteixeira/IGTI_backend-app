@@ -1,0 +1,22 @@
+{
+  "name": "backend-app",
+  "version": "1.0.0",
+  "description": "Aplicacao backend de exemplo para deploy no Heroku",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunoaugustoteixeira/IGTI_backend-app.git"
+  },
+  "author": "Bruno Teixeira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brunoaugustoteixeira/IGTI_backend-app/issues"
+  },
+  "homepage": "https://github.com/brunoaugustoteixeira/IGTI_backend-app#readme",
+  "dependencies": {
+    "request": "^2.81.0"
+  }
+}
