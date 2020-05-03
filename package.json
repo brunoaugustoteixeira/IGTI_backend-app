@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/brunoaugustoteixeira/IGTI_backend-app#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "request": "^2.81.0"
   }
 }
